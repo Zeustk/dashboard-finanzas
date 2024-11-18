@@ -19,6 +19,14 @@ export const routes: Routes = [
       loadComponent: () => import ('./pages/tablas/tablas.component')
     },
     {
+      path:'tablahisto',
+      loadComponent: () => import ('./pages/tablas/historico/historico.component')
+    },
+    {
+      path:'tablaRegis',
+      loadComponent: () => import ('./pages/tablas/registro-gastos/registro-gastos.component')
+    },
+    {
       path:'',
       redirectTo:'dashboard',
       pathMatch:'full'

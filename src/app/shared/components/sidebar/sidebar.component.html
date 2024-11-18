@@ -1,4 +1,4 @@
-<div class="fixed inset-0 z-30 xl:translate-x-0 bg-gradient-to-br bg-purple-700 to-gray-900 overflow-y-auto flex flex-col p-4 h-[calc(100vh-32px)] xl:w-80 w-64 -translate-x-80 xl:translate-x-0 ease-in-out transition-all duration-500">
+<div class="fixed inset-0 z-30  bg-gradient-to-br bg-gray-600 to-gray-900 overflow-y-auto flex flex-col p-4 h-[calc(100vh-32px)] xl:w-80 w-64 -translate-x-80 xl:translate-x-0 ease-in-out transition-all duration-500">
   <!-- Cabecera -->
   <div class="flex justify-between items-center mb-8">
       <div class="text-white text-xl font-semibold">Dashboard Finanzas</div>
@@ -11,7 +11,7 @@
 
   <!-- Menú -->
   <ul class="space-y-4 text-white">
-      <!-- Apartado 1: Resumen General -->
+
       <li>
           <a href="#" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -21,16 +21,16 @@
           </a>
       </li>
 
-      <!-- Apartado 2: Registro de Ventas -->
+
       <li>
-          <a href="/perfil" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
+          <a href="/tablas" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7l2-2h14l2 2M3 17l2 2h14l2-2"></path>
               </svg>
               <span>Registro de Ventas</span>
           </a>
 
-          <!-- Subapartado: Ventas por Fecha -->
+
           <ul class="pl-6 hidden space-y-2 bg-white text-white" id="ventasSubmenu">
               <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Ventas por Fecha</a></li>
               <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Ventas por Producto</a></li>
@@ -39,16 +39,16 @@
           </ul>
       </li>
 
-      <!-- Apartado 3: Registro de Gastos -->
+
       <li>
-          <a href="#" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
+          <a href="/tablaRegis" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h14v16H5zM5 4l7 7 7-7"></path>
               </svg>
               <span>Registro de Gastos</span>
           </a>
 
-          <!-- Subapartado: Gastos por Categoría -->
+
           <ul class="pl-6 hidden space-y-2 bg-white text-white" id="gastosSubmenu">
               <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Gastos por Categoría</a></li>
               <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Gastos por Fecha</a></li>
@@ -57,16 +57,16 @@
           </ul>
       </li>
 
-      <!-- Apartado 4: Balance Financiero -->
+
       <li>
-          <a href="#" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
+          <a href="/tablahisto" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2 2 4-4 4 4 4-4 2 2M3 4l2 2 4-4 4 4 4-4 2 2"></path>
               </svg>
-              <span>Balance Financiero</span>
+              <span>Historico</span>
           </a>
 
-          <!-- Subapartado: Análisis por Cuenta -->
+
           <ul class="pl-6 hidden space-y-2 bg-purple-700 text-white" id="balanceSubmenu">
               <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Análisis por Cuenta</a></li>
               <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Análisis por Mes</a></li>
@@ -77,7 +77,7 @@
 
       <!-- Apartado 5: Exportación -->
       <li>
-          <a href="#" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-red-500 transition-all">
+          <a href="#" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l3 3-3 3M5 9l-3 3 3 3M3 5h18v14H3z"></path>
               </svg>
@@ -96,7 +96,7 @@
 </div>
 
 <script>
-  // JavaScript para manejar la visibilidad de los subapartados
+
   document.querySelectorAll('a').forEach(item => {
     item.addEventListener('click', function(e) {
       const submenu = this.nextElementSibling;
