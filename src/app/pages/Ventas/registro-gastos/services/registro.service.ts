@@ -12,12 +12,12 @@ export class registroService extends ServicoGeneral<registro>{
   }
 
 
-  ConsultarVentas(){
-    return this.Consultar('getregistro');
+  ConsultarGastos(){
+    return this.Consultar('getGastos');
   }
 
-  GenerarReportesVentas(){
-    return this.ConsultarReporte('getReportes');
+  GenerarReportesGastos(){
+    return this.ConsultarReporte('getGastos');
   }
 
 }
