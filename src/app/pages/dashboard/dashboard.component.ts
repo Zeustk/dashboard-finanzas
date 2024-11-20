@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import PerfilComponent from "../perfil/perfil.component";
-import TablasComponent from "../tablas/tablas.component";
-import RegistroGastosComponent from "../tablas/registro-gastos/registro-gastos.component";
+import TablasComponent from "../Ventas/tablas.component";
+import RegistroGastosComponent from "../Ventas/registro-gastos/registro-gastos.component"
 
 
 @Component({

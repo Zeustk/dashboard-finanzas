@@ -16,15 +16,15 @@ export const routes: Routes = [
     },
     {
       path:'tablas',
-      loadComponent: () => import ('./pages/tablas/tablas.component')
+      loadComponent: () => import ('./pages/Ventas/tablas.component')
     },
     {
       path:'tablahisto',
-      loadComponent: () => import ('./pages/tablas/historico/historico.component')
+      loadComponent: () => import ('./pages/Ventas/historico/historico.component')
     },
     {
       path:'tablaRegis',
-      loadComponent: () => import ('./pages/tablas/registro-gastos/registro-gastos.component')
+      loadComponent: () => import ('./pages/Ventas/registro-gastos/registro-gastos.component')
     },
     {
       path:'',

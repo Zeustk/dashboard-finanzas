@@ -1,0 +1,90 @@
+<div class="relative flex flex-col w-full h-full overflow-scroll text-slate-300 bg-slate-800 shadow-md rounded-lg bg-clip-border">
+  <table class="w-full text-left table-auto min-w-max">
+    <thead>
+      <tr>
+        <th class="p-4 border-b border-slate-600 bg-slate-700">
+          <p class="text-sm font-normal leading-none text-slate-300">Mes</p>
+        </th>
+        <th class="p-4 border-b border-slate-600 bg-slate-700">
+          <p class="text-sm font-normal leading-none text-slate-300">Gastos</p>
+        </th>
+        <th class="p-4 border-b border-slate-600 bg-slate-700">
+          <p class="text-sm font-normal leading-none text-slate-300">Ingresos</p>
+        </th>
+        <th class="p-4 border-b border-slate-600 bg-slate-700">
+          <p class="text-sm font-normal leading-none text-slate-300">Monto</p>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="even:bg-slate-900 hover:bg-slate-700">
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-100 font-semibold">Enero</p>
+        </td>
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-300">$500</p>
+        </td>
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-300">$1,200</p>
+        </td>
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-300">$700</p>
+        </td>
+      </tr>
+      <tr class="even:bg-slate-900 hover:bg-slate-700">
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-100 font-semibold">Febrero</p>
+        </td>
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-300">$600</p>
+        </td>
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-300">$1,500</p>
+        </td>
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-300">$900</p>
+        </td>
+      </tr>
+      <tr class="even:bg-slate-900 hover:bg-slate-700">
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-100 font-semibold">Marzo</p>
+        </td>
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-300">$750</p>
+        </td>
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-300">$1,800</p>
+        </td>
+        <td class="p-4 border-b border-slate-700">
+          <p class="text-sm text-slate-300">$1,050</p>
+        </td>
+      </tr>
+      <tr class="even:bg-slate-900 hover:bg-slate-700">
+        <td class="p-4">
+          <p class="text-sm text-slate-100 font-semibold">Abril</p>
+        </td>
+        <td class="p-4">
+          <p class="text-sm text-slate-300">$800</p>
+        </td>
+        <td class="p-4">
+          <p class="text-sm text-slate-300">$2,000</p>
+        </td>
+        <td class="p-4">
+          <p class="text-sm text-slate-300">$1,200</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="p-6 mt-6 bg-slate-700 rounded-lg shadow-lg">
+  <h2 class="text-xl font-semibold text-slate-100 mb-4">Resumen de Gráficas Historico</h2>
+  <div class="flex gap-4">
+    <div class="flex-1 p-4 bg-slate-800 rounded-lg shadow-inner">
+      <app-graficahistorico></app-graficahistorico>
+    </div>
+    <div class="flex-1 p-4 bg-slate-800 rounded-lg shadow-inner">
+      <app-grafica-evaluacion></app-grafica-evaluacion>
+    </div>
+  </div>
+</div>
