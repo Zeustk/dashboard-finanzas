@@ -47,18 +47,18 @@ export class GraficaEvaluacionComponent {
 
   // Lista de datos históricos con monto
   public datosHistoricos = [
-    { mes: "Enero", monto: 500 },
-    { mes: "Febrero", monto: 700 },
-    { mes: "Marzo", monto: 850 },
-    { mes: "Abril", monto: 600 },
-    { mes: "Mayo", monto: 650 },
-    { mes: "Junio", monto: 700 },
-    { mes: "Julio", monto: 750 },
-    { mes: "Agosto", monto: 800 },
-    { mes: "Septiembre", monto: 720 },
-    { mes: "Octubre", monto: 780 },
-    { mes: "Noviembre", monto: 850 },
-    { mes: "Diciembre", monto: 900 }
+    { mes: "Enero", ingresos: 20, gastos: 15, monto: 500 },
+    { mes: "Febrero", ingresos: 40, gastos: 25, monto: 700 },
+    { mes: "Marzo", ingresos: 54, gastos: 30, monto: 850 },
+    { mes: "Abril", ingresos: 44, gastos: 35, monto: 600 },
+    { mes: "Mayo", ingresos: 55, gastos: 45, monto: 650 },
+    { mes: "Junio", ingresos: 57, gastos: 50, monto: 700 },
+    { mes: "Julio", ingresos: 56, gastos: 52, monto: 750 },
+    { mes: "Agosto", ingresos: 61, gastos: 60, monto: 800 },
+    { mes: "Septiembre", ingresos: 58, gastos: 55, monto: 720 },
+    { mes: "Octubre", ingresos: 63, gastos: 65, monto: 780 },
+    { mes: "Noviembre", ingresos: 60, gastos: 70, monto: 850 },
+    { mes: "Diciembre", ingresos: 66, gastos: 75, monto: 900 }
   ];
 
   constructor() {

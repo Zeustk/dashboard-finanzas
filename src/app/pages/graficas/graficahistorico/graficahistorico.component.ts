@@ -97,13 +97,13 @@ export class GraficahistoricoComponent {
             fontWeight: "bold",
             color: "#FFFFFF"
           },
-          text: "$ (Monto)"
+          text: "Ingresos Y gastos "
         }
       },
       tooltip: {
         y: {
           formatter: function (val) {
-            return "$ " + val + " thousands";
+            return "$ " + val + " Pesos";
           }
         },
       },
