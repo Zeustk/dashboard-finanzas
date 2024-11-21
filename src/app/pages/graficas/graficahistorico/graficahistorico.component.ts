@@ -1,5 +1,7 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { ApexAxisChartSeries, ApexChart, ChartComponent, ApexDataLabels, ApexPlotOptions, ApexYAxis, ApexXAxis, ApexFill, ApexTooltip, ApexStroke, ApexLegend, NgApexchartsModule } from "ng-apexcharts";
+import { historico } from "../../Ventas/historico/interface/historico.interface";
+import { historicoService } from "../../Ventas/historico/service/historico.service";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -21,43 +23,15 @@ export type ChartOptions = {
   templateUrl: './graficahistorico.component.html',
   styleUrl: './graficahistorico.component.scss'
 })
-export class GraficahistoricoComponent {
+export class GraficahistoricoComponent implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
-  // Lista de meses con ingresos, gastos y monto (que no se graficará)
-  public datosHistoricos = [
-    { mes: "Enero", ingresos: 20, gastos: 15, monto: 500 },
-    { mes: "Febrero", ingresos: 40, gastos: 25, monto: 700 },
-    { mes: "Marzo", ingresos: 54, gastos: 30, monto: 850 },
-    { mes: "Abril", ingresos: 44, gastos: 35, monto: 600 },
-    { mes: "Mayo", ingresos: 55, gastos: 45, monto: 650 },
-    { mes: "Junio", ingresos: 57, gastos: 50, monto: 700 },
-    { mes: "Julio", ingresos: 56, gastos: 52, monto: 750 },
-    { mes: "Agosto", ingresos: 61, gastos: 60, monto: 800 },
-    { mes: "Septiembre", ingresos: 58, gastos: 55, monto: 720 },
-    { mes: "Octubre", ingresos: 63, gastos: 65, monto: 780 },
-    { mes: "Noviembre", ingresos: 60, gastos: 70, monto: 850 },
-    { mes: "Diciembre", ingresos: 66, gastos: 75, monto: 900 }
-  ];
+  historico: historico[] = [];
 
-  constructor() {
-    // Recorremos los datos para llenar las series (sin incluir el campo 'monto')
-    const meses = this.datosHistoricos.map(data => data.mes);
-    const ingresosData = this.datosHistoricos.map(data => data.ingresos);
-    const gastosData = this.datosHistoricos.map(data => data.gastos);
-
+  constructor(private historicoService: historicoService) {
     this.chartOptions = {
-      series: [
-        {
-          name: "Ingresos",
-          data: ingresosData,
-        },
-        {
-          name: "Gastos",
-          data: gastosData
-        },
-      ],
+      series: [],
       chart: {
         type: "bar",
         height: 350
@@ -73,7 +47,7 @@ export class GraficahistoricoComponent {
         colors: ["#4CAF50", "#FF0000"]  // Ingresos en verde y Gastos en rojo
       },
       dataLabels: {
-        enabled: false
+        enabled: false,  // Desactivar los dataLabels
       },
       stroke: {
         show: true,
@@ -81,14 +55,17 @@ export class GraficahistoricoComponent {
         colors: ["transparent"]
       },
       xaxis: {
-        categories: meses,
+        categories: [], // Aquí los meses se asignarán dinámicamente
         labels: {
           style: {
-            colors: ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
+            colors: [], // Esto se asignará dinámicamente
             fontSize: "12px",
-            fontFamily: "Arial, sans-serif"
-          }
-        },
+            fontFamily: "Arial, sans-serif",
+            fontWeight: "normal" // Añadir esto para asegurarse que las etiquetas sean visibles
+          },
+          rotate: -45, // Rotar las etiquetas para mejor visibilidad
+          maxHeight: 100, // Limitar la altura para no cortar las etiquetas
+        }
       },
       yaxis: {
         title: {
@@ -97,10 +74,11 @@ export class GraficahistoricoComponent {
             fontWeight: "bold",
             color: "#FFFFFF"
           },
-          text: "Ingresos Y gastos "
+          text: "Ingresos y Gastos"
         }
       },
       tooltip: {
+        enabled: true, // Asegurarse de que el tooltip esté activado
         y: {
           formatter: function (val) {
             return "$ " + val + " Pesos";
@@ -109,7 +87,93 @@ export class GraficahistoricoComponent {
       },
       legend: {
         labels: {
-          colors: ['#FFFFFF', '#FFFFFF'],
+          colors: ['#FFFFFF'],
+        }
+      }
+    };
+  }
+
+  ngOnInit(): void {
+    this.CargarHistorico();
+  }
+
+  CargarHistorico() {
+    console.log("graf Historico1");
+    this.historicoService.ConsultarHistorico().subscribe(
+      (ListHistorico: historico[] | null) => {
+        if (ListHistorico != null) {
+          this.historico = ListHistorico;
+          console.log(ListHistorico);
+          this.actualizarGrafica();
+        }
+      },
+      (error: any) => {
+        console.error("Error al consultar marcas:", error);
+      }
+    );
+  }
+
+  actualizarGrafica() {
+    const mesNombres: { [key: string]: string } = {
+      "01": "Enero",
+      "02": "Febrero",
+      "03": "Marzo",
+      "04": "Abril",
+      "05": "Mayo",
+      "06": "Junio",
+      "07": "Julio",
+      "08": "Agosto",
+      "09": "Septiembre",
+      "10": "Octubre",
+      "11": "Noviembre",
+      "12": "Diciembre"
+    };
+  
+    const mesesConAnios = this.historico.map(data => {
+      const [mes, anio] = data.Mes.split('/');
+      const mesNombre = mesNombres[mes];
+      return `${mesNombre} ${anio}`; // Incluye tanto el mes como el año
+    });
+    
+    const ingresosData = this.historico.map(data => data.Ingresos_Del_Mes);
+    const gastosData = this.historico.map(data => data.Gastos_Del_Mes);
+  
+    this.chartOptions = {
+      ...this.chartOptions,
+      series: [
+        {
+          name: "Ingresos Del Mes",
+          data: ingresosData,
+        },
+        {
+          name: "Gastos Del Mes",
+          data: gastosData,
+        }
+      ],
+      xaxis: {
+        categories: mesesConAnios,  // Usa las categorías con el año
+        labels: {
+          style: {
+            colors: Array(mesesConAnios.length).fill("#FFFFFF"), // Asegúrate de que las etiquetas sean blancas
+            fontSize: "12px",
+            fontFamily: "Arial, sans-serif",
+            fontWeight: "normal"
+          },
+          rotate: -45,
+          maxHeight: 100,
+        }
+      },
+      tooltip: {
+        enabled: true,
+        y: {
+          formatter: function (val) {
+            return "$ " + val + " Pesos"; // Muestra los valores con formato
+          }
+        },
+        x: {
+          formatter: function (val) {
+            return `Mes/Año: ${val}`; // Muestra el mes y año cuando pasas el mouse
+          }
         }
       }
     };

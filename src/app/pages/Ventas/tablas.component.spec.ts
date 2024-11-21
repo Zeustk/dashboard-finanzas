@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TablasComponent } from './tablas.component';
+import TablasComponent  from './tablas.component';
 
 describe('TablasComponent', () => {
   let component: TablasComponent;

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegistroGastosComponent } from './registro-gastos.component';
+import  RegistroGastosComponent  from './registro-gastos.component';
 
 describe('RegistroGastosComponent', () => {
   let component: RegistroGastosComponent;

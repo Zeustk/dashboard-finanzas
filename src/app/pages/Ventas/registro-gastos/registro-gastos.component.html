@@ -19,12 +19,12 @@
                 </th>
                 <th class="p-4 border-b border-slate-600 bg-slate-700">
                     <p class="text-sm font-normal leading-none text-slate-300">
-                        fdfdf
+                        Categoria
                     </p>
                 </th>
                 <th class="p-4 border-b border-slate-600 bg-slate-700">
                     <p class="text-sm font-normal leading-none text-slate-300">
-                        ddfdfghjk
+                        Proveedor
                     </p>
                 </th>
             </tr>
@@ -34,11 +34,11 @@
           *ngFor="let gasto of gastos"
           class="even:bg-slate-900 hover:bg-slate-700"
         >
-          <td class="p-4 border-b border-slate-700">{{ gasto.fecha }}</td>
-          <td class="p-4 border-b border-slate-700">{{ gasto.hora }}</td>
-          <td class="p-4 border-b border-slate-700">${{ gasto.monto }}</td>
-          <td class="p-4 border-b border-slate-700">{{ gasto.categoria }}</td>
-          <td class="p-4 border-b border-slate-700">{{ gasto.proveedor }}</td>
+          <td class="p-4 border-b border-slate-700">{{ gasto.Fecha }}</td>
+          <td class="p-4 border-b border-slate-700">{{ gasto.Hora }}</td>
+          <td class="p-4 border-b border-slate-700">${{ gasto.Monto }}</td>
+          <td class="p-4 border-b border-slate-700">{{ gasto.Categoria }}</td>
+          <td class="p-4 border-b border-slate-700">{{ gasto.Proveedor }}</td>
         </tr>
         </tbody>
     </table>

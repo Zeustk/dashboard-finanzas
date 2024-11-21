@@ -1,8 +1,8 @@
 export interface Ventas {
-  codigo: number | null;
-  fecha: Date;
-  hora: String | null;
-  monto: number | null;
-  razon: String;
+
+  Fecha: Date;
+  Hora: String | null;
+  Monto: number | null;
+  Razon: String;
 
 }

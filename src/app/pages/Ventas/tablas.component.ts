@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { VentasServicio } from './services/ventas.service';
+import { Ventas } from './interface/ventas.interface';
 @Component({
   selector: 'app-tablas',
   standalone: true,
@@ -7,12 +9,32 @@ import { CommonModule } from '@angular/common';
   templateUrl: './tablas.component.html',
   styleUrl: './tablas.component.scss'
 })
-export default class TablasComponent {
-  ventas = [
-    { fecha: '2024-11-18', hora: '10:00 AM', monto: 200, razonDeVenta:'limonada grande'  },
-    { fecha: '2024-11-18', hora: '11:30 AM', monto: 500, razonDeVenta:'limonada grande' },
-    { fecha: '2024-11-18', hora: '01:45 PM', monto: 350, razonDeVenta:'limonada pequeña' },
-    { fecha: '2024-11-18', hora: '03:20 PM', monto: 450, razonDeVenta:'limonada mediana' },
-    { fecha: '2024-11-18', hora: '04:50 PM', monto: 700, razonDeVenta:'limonada pequeña' },
-  ];
+export default class TablasComponent implements OnInit{
+  
+  ventas : Ventas[]=[];
+  constructor(private  ventasService :VentasServicio ){}
+  ngOnInit(): void {
+    this.CargarVentas();
+  }
+  
+ 
+  CargarVentas() {  //NGONInit PERMITE QUE SE CARGUEN LOS DATOS ANTES DE QUE CARGUEN LAS VISRTAS
+    console.log("hola ventas");
+    this.ventasService.ConsultarVentas().subscribe(
+      (ListVentas: Ventas[] | null) => {
+
+        if (ListVentas != null) {
+          this.ventas = ListVentas;
+          console.log(ListVentas);
+
+      
+        }
+       
+      },
+      (error: any) => {
+        console.error('Error al consultar marcas:', error);
+      }
+    );
+
+  }
 }

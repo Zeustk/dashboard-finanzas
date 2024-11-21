@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import {registro} from "../interface//registro.interface"
 import { ServicoGeneral } from '../../../../ServiciosR/get.service';
 
-@Injectable()
+
+@Injectable({
+  providedIn: 'root', // Disponible en toda la aplicación
+})
 export class registroService extends ServicoGeneral<registro>{
 
   private _registro!:registro;

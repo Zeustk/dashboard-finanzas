@@ -1,8 +1,8 @@
 export interface historico{
-  codigo: number;
-  mes:String;
-  gastos_del_mes:number;
-  ingresos_del_mes:number;
-  monto_a_favor:number;
+  Codigo: number;
+  Mes:String;
+  Gastos_Del_Mes:number;
+  Ingresos_Del_Mes:number;
+  Monto_a_Favor:number;
 
 }

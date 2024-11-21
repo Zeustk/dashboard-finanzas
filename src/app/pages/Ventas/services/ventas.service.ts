@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import {Ventas} from "../interface/ventas.interface"
 import { ServicoGeneral } from '../../../ServiciosR/get.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root', // Hace que el servicio esté disponible globalmente
+})
 export class VentasServicio extends ServicoGeneral<Ventas>{
 
   private _Ventas!:Ventas;
