@@ -24,15 +24,15 @@
       </div>
       <div class="space-y-6">
         <div class="">
-          <input [(ngModel)]="Usuario.Contrasena"
+          <input [(ngModel)]="Usuario.Email"
             class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
             type="" placeholder="Correo">
         </div>
 
 
         <div class="relative" x-data="{ show: true }">
-          
-          <input placeholder="Contraseña" :type="show ? 'password' : 'text'"  [(ngModel)]="Usuario.Contrasena"
+
+          <input placeholder="Contraseña" :type="show ? 'password' : 'text'" [(ngModel)]="Usuario.Contrasena"
             class="text-sm text-gray-800 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400">
 
         </div>
@@ -48,10 +48,11 @@
           </div>
         </div>
         <div>
-          <button type="submit"
-            class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
-            <a href="/dashboard">Iniciar sesion</a>
-          </button>
+          <button type="submit" (click)="BuscandoUsuario()"
+          class="w-full flex justify-center bg-purple-800 hover:bg-purple-700 text-gray-100 p-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-500">
+          Iniciar sesión
+        </button>
+        
         </div>
         <div class="flex items-center justify-center space-x-2 my-5">
           <span class="h-px w-16 bg-gray-100"></span>
