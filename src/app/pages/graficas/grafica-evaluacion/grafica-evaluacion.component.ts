@@ -137,6 +137,12 @@ export class GraficaEvaluacionComponent implements OnInit {
                   color: "#FFFFFF"
                 },
                 text: "$ (Monto)"
+              },
+              labels: {
+                style: {
+                  colors: "#FFFFFF", // Cambiar los valores del eje Y a blanco
+                  fontSize: "12px"    // Tamaño de fuente para los valores del eje Y
+                }
               }
             }
           };

@@ -3,6 +3,8 @@ import { provideRouter } from '@angular/router';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core'; // Importa esto
+import { FormsModule } from '@angular/forms'; // Importa FormsModule
 
 import { routes } from './app.routes';
 import { registroService } from './pages/Ventas/registro-gastos/services/registro.service';
@@ -16,9 +18,9 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideAnimationsAsync(),
     provideHttpClient(), // Proveer HttpClient globalmente
+    importProvidersFrom(FormsModule), // Agrega FormsModule como proveedor
     registroService,
     VentasServicio,
-    historicoService 
-    
+    historicoService
   ],
 };

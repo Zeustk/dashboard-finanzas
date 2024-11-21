@@ -36,4 +36,12 @@ export class ServicoGeneral<T> {
 
   }
 
+  Agregar(body:T,endpoint:string){
+
+    const url = `${this.baseUrl}/${endpoint}`  //HTTP://localhost/api/endpoint
+
+    return this.http.post<string>(url, body)
+
+  }
+
 }

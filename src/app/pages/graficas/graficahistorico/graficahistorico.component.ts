@@ -75,6 +75,12 @@ export class GraficahistoricoComponent implements OnInit {
             color: "#FFFFFF"
           },
           text: "Ingresos y Gastos"
+        },
+        labels: {
+          style: {
+            colors: "#FFFFFF", // Cambiar los valores del eje Y a blanco
+            fontSize: "12px"    // Tamaño de fuente para los valores del eje Y
+          }
         }
       },
       tooltip: {
