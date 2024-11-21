@@ -1,0 +1,108 @@
+<div class="fixed inset-0 z-30  bg-gradient-to-br bg-gray-600 to-gray-900 overflow-y-auto flex flex-col p-4 h-[calc(100vh-32px)] xl:w-80 w-64 -translate-x-80 xl:translate-x-0 ease-in-out transition-all duration-500">
+  <!-- Cabecera -->
+  <div class="flex justify-between items-center mb-8">
+      <div class="text-white text-xl font-semibold">Dashboard Finanzas</div>
+      <button class="text-white xl:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+      </button>
+  </div>
+
+  <!-- Menú -->
+  <ul class="space-y-4 text-white">
+
+      <li>
+          <a href="#" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l5-5H5l5 5zM10 4l5 5H5l5-5z"></path>
+              </svg>
+              <span>Resumen General</span>
+          </a>
+      </li>
+
+
+      <li>
+          <a href="/tablas" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7l2-2h14l2 2M3 17l2 2h14l2-2"></path>
+              </svg>
+              <span>Registro de Ventas</span>
+          </a>
+
+
+          <ul class="pl-6 hidden space-y-2 bg-white text-white" id="ventasSubmenu">
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Ventas por Fecha</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Ventas por Producto</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Ventas por Cliente</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Ventas por Región</a></li>
+          </ul>
+      </li>
+
+
+      <li>
+          <a href="/tablaRegis" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h14v16H5zM5 4l7 7 7-7"></path>
+              </svg>
+              <span>Registro de Gastos</span>
+          </a>
+
+
+          <ul class="pl-6 hidden space-y-2 bg-white text-white" id="gastosSubmenu">
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Gastos por Categoría</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Gastos por Fecha</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Gastos por Proyecto</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Gastos por Departamento</a></li>
+          </ul>
+      </li>
+
+
+      <li>
+          <a href="/tablahisto" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2 2 4-4 4 4 4-4 2 2M3 4l2 2 4-4 4 4 4-4 2 2"></path>
+              </svg>
+              <span>Historico</span>
+          </a>
+
+
+          <ul class="pl-6 hidden space-y-2 bg-purple-700 text-white" id="balanceSubmenu">
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Análisis por Cuenta</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Análisis por Mes</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Análisis por Año</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Análisis por Proyecto</a></li>
+          </ul>
+      </li>
+
+      <!-- Apartado 5: Exportación -->
+      <li>
+          <a href="#" class="flex items-center space-x-4 py-3 px-2 rounded-lg hover:bg-blue-500 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l3 3-3 3M5 9l-3 3 3 3M3 5h18v14H3z"></path>
+              </svg>
+              <span>Exportación</span>
+          </a>
+
+          <!-- Subapartado: Exportar CSV -->
+          <ul class="pl-6 hidden space-y-2 bg-white text-white" id="exportSubmenu">
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Exportar CSV</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Exportar PDF</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Exportar Excel</a></li>
+              <li><a href="#" class="flex items-center space-x-4 py-2 px-2 rounded-lg hover:bg-blue-400 transition-all">Exportar JSON</a></li>
+          </ul>
+      </li>
+  </ul>
+</div>
+
+<script>
+
+  document.querySelectorAll('a').forEach(item => {
+    item.addEventListener('click', function(e) {
+      const submenu = this.nextElementSibling;
+      if (submenu && submenu.classList.contains('bg-purple-700')) {
+        submenu.classList.toggle('hidden');
+      }
+    });
+  });
+</script>

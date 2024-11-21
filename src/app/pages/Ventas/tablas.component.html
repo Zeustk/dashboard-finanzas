@@ -1,0 +1,36 @@
+<div class="relative flex flex-col w-full h-full overflow-scroll text-slate-300 bg-slate-800 shadow-md rounded-lg bg-clip-border">
+    <table class="w-full text-left table-auto min-w-max">
+        <thead>
+            <tr>
+                <th class="p-4 border-b border-slate-600 bg-slate-700">
+                    <p class="text-sm font-normal leading-none text-slate-300">Fecha</p>
+                </th>
+                <th class="p-4 border-b border-slate-600 bg-slate-700">
+                    <p class="text-sm font-normal leading-none text-slate-300">Hora</p>
+                </th>
+                <th class="p-4 border-b border-slate-600 bg-slate-700">
+                    <p class="text-sm font-normal leading-none text-slate-300">Monto</p>
+                </th>
+                <th class="p-4 border-b border-slate-600 bg-slate-700">
+                    <p class="text-sm font-normal leading-none text-slate-300">Razón de Venta</p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let venta of ventas" class="even:bg-slate-900 hover:bg-slate-700">
+                <td class="p-4 border-b border-slate-700">
+                    <p class="text-sm text-slate-100 font-semibold">{{ venta.Fecha }}</p>
+                </td>
+                <td class="p-4 border-b border-slate-700">
+                    <p class="text-sm text-slate-300">{{ venta.Hora }}</p>
+                </td>
+                <td class="p-4 border-b border-slate-700">
+                    <p class="text-sm text-slate-300">{{ venta.Monto | currency:'USD' }}</p>
+                </td>
+                <td class="p-4 border-b border-slate-700">
+                    <p class="text-sm text-slate-300">{{ venta.Razon }}</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

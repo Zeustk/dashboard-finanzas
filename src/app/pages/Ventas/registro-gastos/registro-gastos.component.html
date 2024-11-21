@@ -1,0 +1,47 @@
+<div class="relative flex flex-col w-full h-full overflow-scroll text-slate-300 bg-slate-800 shadow-md rounded-lg bg-clip-border">
+    <table class="w-full text-left table-auto min-w-max">
+        <thead>
+            <tr>
+                <th class="p-4 border-b border-slate-600 bg-slate-700">
+                    <p class="text-sm font-normal leading-none text-slate-300">
+                        Fecha
+                    </p>
+                </th>
+                <th class="p-4 border-b border-slate-600 bg-slate-700">
+                    <p class="text-sm font-normal leading-none text-slate-300">
+                        Hora
+                    </p>
+                </th>
+                <th class="p-4 border-b border-slate-600 bg-slate-700">
+                    <p class="text-sm font-normal leading-none text-slate-300">
+                        Monto
+                    </p>
+                </th>
+                <th class="p-4 border-b border-slate-600 bg-slate-700">
+                    <p class="text-sm font-normal leading-none text-slate-300">
+                        Categoria
+                    </p>
+                </th>
+                <th class="p-4 border-b border-slate-600 bg-slate-700">
+                    <p class="text-sm font-normal leading-none text-slate-300">
+                        Proveedor
+                    </p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr
+          *ngFor="let gasto of gastos"
+          class="even:bg-slate-900 hover:bg-slate-700"
+        >
+          <td class="p-4 border-b border-slate-700">{{ gasto.Fecha }}</td>
+          <td class="p-4 border-b border-slate-700">{{ gasto.Hora }}</td>
+          <td class="p-4 border-b border-slate-700">${{ gasto.Monto }}</td>
+          <td class="p-4 border-b border-slate-700">{{ gasto.Categoria }}</td>
+          <td class="p-4 border-b border-slate-700">{{ gasto.Proveedor }}</td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+  
+  
