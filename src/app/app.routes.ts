@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import RegistroGastosComponent from './pages/Ventas/registro-gastos/registro-gastos.component';
 
 export const routes: Routes = [
   {
@@ -24,7 +25,8 @@ export const routes: Routes = [
     },
     {
       path:'tablaRegis',
-      loadComponent: () => import ('./pages/Ventas/registro-gastos/registro-gastos.component')
+      //loadComponent: () => import ('./pages/Ventas/registro-gastos/registro-gastos.component')
+      component:RegistroGastosComponent
     },
     {
       path:'',
