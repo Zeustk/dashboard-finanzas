@@ -30,7 +30,7 @@ export default class RegistroGastosComponent  implements OnInit{
     // Cargar datos inicialmente
     this.CargarGastos();
 
-  }
+  }//perfect
 
 
 
@@ -40,7 +40,7 @@ export default class RegistroGastosComponent  implements OnInit{
 
       (ListGastos: registro[] | null) => {
         if (ListGastos) {
-          
+
           this.gastos = ListGastos;
 
         }
