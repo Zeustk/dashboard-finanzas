@@ -35,12 +35,14 @@ export default class RegistroGastosComponent  implements OnInit{
 
 
   CargarGastos(): void {
-    console.log('Solicitando datos al backend...');
+
     this.registroService.ConsultarGastos().subscribe(
+
       (ListGastos: registro[] | null) => {
         if (ListGastos) {
+          
           this.gastos = ListGastos;
-          console.log('Datos cargados:', this.gastos);
+
         }
       },
       (error: any) => {
