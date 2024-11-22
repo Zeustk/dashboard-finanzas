@@ -1,7 +1,7 @@
 
 import { CommonModule } from '@angular/common'; // Importar CommonModule
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd,ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { registroService } from './services/registro.service';
@@ -26,30 +26,42 @@ export default class RegistroGastosComponent  implements OnInit{
   ];*/
 
   gastos: registro[] = [];
-  constructor(private router: Router, private gastoService: registroService) {}
   private routerSubscription: Subscription | null = null;
+
+  constructor(
+    private registroService: registroService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
+
   ngOnInit(): void {
     this.CargarGastos();
 
-    // Detectar cambios de navegación y recargar datos
+    // Escuchar cambios de navegación dentro de la misma ruta
     this.routerSubscription = this.router.events
-    .pipe(filter(event => event instanceof NavigationEnd))
-    .subscribe(() => {
-      this.CargarGastos();
-    });
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.CargarGastos();
+      });
   }
 
-  CargarGastos() {
-    console.log("Cargando gastos...");
-    this.gastoService.ConsultarGastos().subscribe(
+  ngOnDestroy(): void {
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
+  }
+
+  CargarGastos(): void {
+    console.log('Cargando datos...');
+    this.registroService.ConsultarGastos().subscribe(
       (ListGastos: registro[] | null) => {
-        if (ListGastos != null) {
+        if (ListGastos) {
           this.gastos = ListGastos;
-          console.log("Gastos cargados:", ListGastos);
+          console.log('Datos cargados:', ListGastos);
         }
       },
       (error: any) => {
-        console.error('Error al consultar gastos:', error);
+        console.error('Error al cargar datos:', error);
       }
     );
   }
