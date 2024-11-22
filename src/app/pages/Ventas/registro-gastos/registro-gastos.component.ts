@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+
 import { CommonModule } from '@angular/common'; // Importar CommonModule
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 import { registroService } from './services/registro.service';
 import { registro } from './interface/registro.interface';
+
 
 @Component({
   selector: 'app-registro-gastos',
@@ -19,34 +24,33 @@ export default class RegistroGastosComponent  implements OnInit{
     { fecha: '2024-11-18', hora: '03:20 PM', monto: 450, categoria: 'Azúcar', proveedor: 'Azucarera Mundial' },
     { fecha: '2024-11-18', hora: '04:50 PM', monto: 700, categoria: 'Frutas variadas', proveedor: 'Mercado Central' },
   ];*/
-  gastos : registro[]=[];
-  constructor(private gastoService: registroService){}
+
+  gastos: registro[] = [];
+  constructor(private router: Router, private gastoService: registroService) {}
+  private routerSubscription: Subscription | null = null;
   ngOnInit(): void {
+    this.CargarGastos();
 
-    
-        this.CargarGastos();
-  
-
+    // Detectar cambios de navegación y recargar datos
+    this.routerSubscription = this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe(() => {
+      this.CargarGastos();
+    });
   }
-  
- 
-  CargarGastos() {  //NGONInit PERMITE QUE SE CARGUEN LOS DATOS ANTES DE QUE CARGUEN LAS VISRTAS
-    console.log("hoal gastos");
+
+  CargarGastos() {
+    console.log("Cargando gastos...");
     this.gastoService.ConsultarGastos().subscribe(
       (ListGastos: registro[] | null) => {
-
         if (ListGastos != null) {
-          this.gastos= ListGastos;
-          console.log(ListGastos);
-
-      
+          this.gastos = ListGastos;
+          console.log("Gastos cargados:", ListGastos);
         }
-       
       },
       (error: any) => {
-        console.error('Error al consultar marcas:', error);
+        console.error('Error al consultar gastos:', error);
       }
     );
-
   }
 }
