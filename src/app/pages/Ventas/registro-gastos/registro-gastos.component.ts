@@ -1,9 +1,6 @@
 
 import { CommonModule } from '@angular/common'; // Importar CommonModule
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, NavigationEnd,ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 import { registroService } from './services/registro.service';
 import { registro } from './interface/registro.interface';
 
@@ -26,29 +23,16 @@ export default class RegistroGastosComponent  implements OnInit{
   ];*/
 
   gastos: registro[] = [];
-  private routerSubscription: Subscription | null = null;
 
-  constructor(private registroService: registroService, private router: Router) {}
+  constructor(private registroService: registroService) {}
 
   ngOnInit(): void {
     // Cargar datos inicialmente
     this.CargarGastos();
 
-    // Escuchar navegación para recargar los datos cada vez que entres a esta ruta
-    this.routerSubscription = this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        console.log('Detectada navegación, recargando datos...');
-        this.CargarGastos();
-      });
   }
 
-  ngOnDestroy(): void {
-    // Limpiar la suscripción para evitar fugas de memoria
-    if (this.routerSubscription) {
-      this.routerSubscription.unsubscribe();
-    }
-  }
+
 
   CargarGastos(): void {
     console.log('Solicitando datos al backend...');
