@@ -28,11 +28,11 @@ export const routes: Routes = [
       loadComponent: () => import ('./pages/Ventas/registro-gastos/registro-gastos.component')
 
     },
-   // {
-      //path:'',
-      //redirectTo:'dashboard',
-      //pathMatch:'full'
-   // }
+   {
+      path:'',
+      redirectTo:'dashboard',
+      pathMatch:'full'
+    }
    ]
   },
   {
@@ -40,8 +40,8 @@ export const routes: Routes = [
     loadComponent: () => import ('./pages/authentication/login/login.component')
   },
   {
-  // path: '**',
-   // redirectTo: 'dashboard',
+  path: '**',
+   redirectTo: 'dashboard',
 
   }
 
