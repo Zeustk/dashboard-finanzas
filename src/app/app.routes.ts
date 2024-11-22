@@ -25,8 +25,8 @@ export const routes: Routes = [
     },
     {
       path:'tablaRegis',
-      //loadComponent: () => import ('./pages/Ventas/registro-gastos/registro-gastos.component')
-      component:RegistroGastosComponent
+      loadComponent: () => import ('./pages/Ventas/registro-gastos/registro-gastos.component')
+
     },
     {
       path:'',
@@ -40,8 +40,8 @@ export const routes: Routes = [
     loadComponent: () => import ('./pages/authentication/login/login.component')
   },
   {
-    path: '**',
-    redirectTo: 'dashboard',
+   // path: '**',
+    //redirectTo: 'dashboard',
 
   }
 
