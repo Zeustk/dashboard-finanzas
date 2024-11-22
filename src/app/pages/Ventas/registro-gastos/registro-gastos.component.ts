@@ -22,7 +22,11 @@ export default class RegistroGastosComponent  implements OnInit{
   gastos : registro[]=[];
   constructor(private gastoService: registroService){}
   ngOnInit(): void {
-    this.CargarGastos();
+
+      setInterval(() => {
+        this.CargarGastos();
+      }, 10000); // Cada 10 segundos
+
   }
   
  
