@@ -28,36 +28,35 @@ export default class RegistroGastosComponent  implements OnInit{
   gastos: registro[] = [];
   private routerSubscription: Subscription | null = null;
 
-  constructor(
-    private registroService: registroService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private registroService: registroService, private router: Router) {}
 
   ngOnInit(): void {
+    // Cargar datos inicialmente
     this.CargarGastos();
 
-    // Escuchar cambios de navegación dentro de la misma ruta
+    // Escuchar navegación para recargar los datos cada vez que entres a esta ruta
     this.routerSubscription = this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
+        console.log('Detectada navegación, recargando datos...');
         this.CargarGastos();
       });
   }
 
   ngOnDestroy(): void {
+    // Limpiar la suscripción para evitar fugas de memoria
     if (this.routerSubscription) {
       this.routerSubscription.unsubscribe();
     }
   }
 
   CargarGastos(): void {
-    console.log('Cargando datos...');
+    console.log('Solicitando datos al backend...');
     this.registroService.ConsultarGastos().subscribe(
       (ListGastos: registro[] | null) => {
         if (ListGastos) {
           this.gastos = ListGastos;
-          console.log('Datos cargados:', ListGastos);
+          console.log('Datos cargados:', this.gastos);
         }
       },
       (error: any) => {
